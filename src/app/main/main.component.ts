@@ -22,7 +22,7 @@ export class MainComponent implements OnInit {
   }
 
   submit() {
-    if(this.loginForm.value.userName === 'admin' && this.loginForm.value.userName === 'admin'){
+    if(this.loginForm.value.userName === 'admin' && this.loginForm.value.password === 'admin'){
       this._dataService.setIsLogged(true);
       this.router.navigate(['about']);
     }

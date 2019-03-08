@@ -9,7 +9,9 @@ import { DataService} from '../services/data.service';
 })
 export class AboutComponent implements OnInit {
 
-  joke: String = "";
+    joke: String = "";
+    messageAbout: String ;
+    messageResponse: String;
   constructor(private _consumeService: ConsumeService,
               private _data: DataService) { }
 
@@ -22,6 +24,7 @@ export class AboutComponent implements OnInit {
         .subscribe((response) => {
             console.log(response);
             this.joke = response.value.joke;
+            this.messageAbout = response.value.joke;
             this._data.setIsLoadingEvent(false);
         },
         (err) => {
@@ -32,6 +35,10 @@ export class AboutComponent implements OnInit {
 
     raiseNotification() {
         this._data.setGeneralNotificationMessage('Notificación de prueba');
+    }
+    
+    mensajeDesdeHolaMundo(algo:string){
+        this.messageResponse=algo;
     }
 
 }

@@ -1,7 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { HeaderRowOutlet } from '@angular/cdk/table';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
-import { EventEmitter } from 'protractor';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-hola-mundo',
@@ -18,10 +15,10 @@ export class HolaMundoComponent implements OnInit {
 
   ngOnInit() {
     this.message="Hola mundo";
-    this.MessageReturn.emit('Mensaje desde Hola Mundo');
+    this.MessageReturn.emit(this.message);
   }
-  clickLike(wmessage: string){
-    this.MessageReturn.emit(`CHUCK NORRIS VS BRUCE LEE, $(message)`);
+  clickLike(message: string){
+    this.MessageReturn.emit(`CHUCK NORRIS RULES, ${message}`);
   }
 
 }

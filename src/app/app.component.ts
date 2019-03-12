@@ -7,6 +7,7 @@ import { DataService } from './services/data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginGuard } from './guards/login.guard';
 import { HolaMundoComponent } from './hola-mundo/hola-mundo.component';
+import { AltaComponent } from './alta/alta.component';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +30,7 @@ export class AppComponent {
         .getGeneralNotificationMessage()
         .subscribe(msg => {
           this._snackBar.open(msg, 'Ok', {
-            duration: 2000
+            duration: 3000
           });
         });
   }
@@ -59,6 +60,11 @@ export const routes: Routes = [
   { 
     path: 'holamundo', 
     component: HolaMundoComponent,
+   // canActivate: [LoginGuard]
+  },
+  { 
+    path: 'alta', 
+    component: AltaComponent,
    // canActivate: [LoginGuard]
   },
   { path: '**', redirectTo: '' }

@@ -1,0 +1,50 @@
+
+<form [formGroup]="registroForm" class="example-container" (submit)="submit()">
+
+    <mat-form-field>
+      <input matInput placeholder="Nombre" value="" formControlName="nombre" type="text">
+      <mat-error>
+        <span *ngIf="registroForm?.controls?.nombre?.errors?.required"><!--NULL PROPAGATION ? registro form tienes valor??? .... -->
+            VALOR REQUERIDO
+        </span>
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput placeholder="Apellido Paterno" value="" formControlName="apellidoPaterno" type="text">
+      <mat-error>
+          <span *ngIf="registroForm?.controls?.apellidoPaterno?.errors?.required">
+              VALOR REQUERIDO
+          </span>
+        </mat-error>    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput placeholder="Apellido Materno" value="" formControlName="apellidoMaterno" type="text">
+      <mat-error>
+        <span *ngIf="registroForm?.controls?.apellidoMaterno?.errors?.required">
+            VALOR REQUERIDO
+        </span>
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+        <mat-select matInput placeholder="Nivel" formControlName="idNivel">
+          <mat-option *ngFor="let nivel of niveles" [value]="nivel.id">{{nivel.name}}</mat-option><!--HACE UN FOREACH DE NIVELES Y SE IDENTIFICA COMO NIVEL-->
+        </mat-select>
+    </mat-form-field>
+
+  <!--
+    <span>{{idNivel}}</span>          <button mat-raised-button color="primary">REGISTRAR</button>
+  -->
+
+  <div>
+      <button mat-icon-button style="color:darkred;">
+          <mat-icon aria-label="Example icon-button with a heart icon" >cancel</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" type="submit" [disabled]="!registroForm.valid"><!--DESABILITADO HASTA QUE ESTEN TODOS LOS CAMPOS LLENOS-->
+          <mat-icon >person_add</mat-icon>
+      </button>
+  </div>
+</form>
+
+  

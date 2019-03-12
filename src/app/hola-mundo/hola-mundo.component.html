@@ -10,14 +10,14 @@
     <mat-card-title>Shiba Inu</mat-card-title>
     <mat-card-subtitle>Dog Breed</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu">
   <mat-card-content>
     <p>
       <span>{{message}} works</span>
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)=clickLike(message)>LIKE</button>
-    <button mat-button>SHARE</button>
+    <button mat-button (click)="clickLike(message)">LIKE</button>
+    <button mat-button (click)="Notificacionshare()">SHARE</button>
   </mat-card-actions>
 </mat-card>

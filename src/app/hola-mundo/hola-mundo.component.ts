@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-hola-mundo',
@@ -11,7 +12,7 @@ export class HolaMundoComponent implements OnInit {
   @Output() MessageReturn=new EventEmitter<string>();
   
 
-  constructor() { }
+  constructor( private _data: DataService) { }
 
   ngOnInit() {
     this.message="Hola mundo";
@@ -19,6 +20,9 @@ export class HolaMundoComponent implements OnInit {
   }
   clickLike(message: string){
     this.MessageReturn.emit(`CHUCK NORRIS RULES, ${message}`);
+  }
+  Notificacionshare(message: string){
+    this._data.setGeneralNotificationMessage('Notificacion de Shareeeeeeeeeeeeeeeeeeeeeeee');
   }
 
 }
